@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First View Controller-->
+        <!--Calculate View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="Find_Your_BMI" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalculateViewController" customModule="Find_Your_BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -124,25 +124,26 @@
                         <outlet property="heightSlider" destination="AHC-CX-DKo" id="5lJ-ue-y85"/>
                         <outlet property="weightLabel" destination="aHZ-sQ-q1X" id="GiG-tQ-HiA"/>
                         <outlet property="weightSlider" destination="j27-SE-vRZ" id="bmz-x5-4Kp"/>
+                        <segue destination="LCA-xo-dkH" kind="presentation" identifier="toResultScreen" id="gTk-Vz-jZp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="c1p-8I-TwO">
             <objects>
-                <viewController id="LCA-xo-dkH" sceneMemberID="viewController">
+                <viewController id="LCA-xo-dkH" customClass="ResultViewController" customModule="Find_Your_BMI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NFO-Ln-wCn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="result_background" translatesAutoresizingMaskIntoConstraints="NO" id="wno-36-cqL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfO-bO-bss">
-                                <rect key="frame" x="20" y="811" width="374" height="51"/>
+                                <rect key="frame" x="20" y="757" width="374" height="51"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="qb3-Ok-ahW"/>
@@ -151,24 +152,27 @@
                                 <state key="normal" title="RECALCULATE">
                                     <color key="titleColor" red="0.3155242801" green="0.29275891180000002" blue="0.50982618329999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="recalculatePressed:" destination="LCA-xo-dkH" eventType="touchUpInside" id="dki-Bl-Pef"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="v9v-AD-LSz">
-                                <rect key="frame" x="91" y="360" width="233" height="177.5"/>
+                                <rect key="frame" x="0.0" y="333" width="414" height="177.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwe-bx-iLe">
-                                        <rect key="frame" x="0.0" y="0.0" width="233" height="42"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19.5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwA-pE-KkG">
-                                        <rect key="frame" x="0.0" y="50" width="233" height="95.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="95.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="80"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtw-lI-tFA">
-                                        <rect key="frame" x="0.0" y="153.5" width="233" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR RESULT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtw-lI-tFA">
+                                        <rect key="frame" x="0.0" y="153.5" width="414" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -176,9 +180,9 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.4823529411764706" blue="0.77254901960784317" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="v9v-AD-LSz" firstAttribute="centerX" secondItem="wno-36-cqL" secondAttribute="centerX" constant="0.5" id="HQX-SL-31j"/>
+                            <constraint firstItem="nfO-bO-bss" firstAttribute="bottom" secondItem="QPN-lD-XQL" secondAttribute="bottom" id="99G-Tx-TyA"/>
                             <constraint firstItem="wno-36-cqL" firstAttribute="leading" secondItem="NFO-Ln-wCn" secondAttribute="leading" id="HZd-dz-sfk"/>
                             <constraint firstAttribute="bottom" secondItem="wno-36-cqL" secondAttribute="bottom" id="KiK-uK-Hfv"/>
                             <constraint firstItem="wno-36-cqL" firstAttribute="top" secondItem="NFO-Ln-wCn" secondAttribute="top" id="Q2f-kw-ejv"/>
@@ -186,11 +190,16 @@
                             <constraint firstItem="nfO-bO-bss" firstAttribute="leading" secondItem="QPN-lD-XQL" secondAttribute="leading" constant="20" id="Xbp-of-XCX"/>
                             <constraint firstAttribute="trailing" secondItem="wno-36-cqL" secondAttribute="trailing" id="eDm-TQ-wtU"/>
                             <constraint firstItem="v9v-AD-LSz" firstAttribute="centerY" secondItem="wno-36-cqL" secondAttribute="centerY" constant="0.75" id="iII-CD-h0A"/>
-                            <constraint firstItem="QPN-lD-XQL" firstAttribute="bottom" secondItem="nfO-bO-bss" secondAttribute="bottom" id="rbm-OS-rib"/>
+                            <constraint firstItem="QPN-lD-XQL" firstAttribute="trailing" secondItem="v9v-AD-LSz" secondAttribute="trailing" id="ri8-zl-rG0"/>
+                            <constraint firstItem="v9v-AD-LSz" firstAttribute="leading" secondItem="QPN-lD-XQL" secondAttribute="leading" constant="20" symbolic="YES" id="szP-UY-UgL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QPN-lD-XQL"/>
                     </view>
                     <navigationItem key="navigationItem" id="qTs-wv-zYI"/>
+                    <connections>
+                        <outlet property="adviceLabel" destination="gtw-lI-tFA" id="Ajn-6B-P5Y"/>
+                        <outlet property="bmiLabel" destination="hwA-pE-KkG" id="KFT-DR-d4u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bSd-zs-Nlh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
